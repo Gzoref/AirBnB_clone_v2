@@ -3,8 +3,10 @@ from fabric.api import *
 from os.path import exists
 from datetime import datetime
 from fabric.api import local
+import os
 
 env.hosts = ['35.227.27.195', '18.215.153.232']
+env.user = 'ubuntu'
 
 
 def do_pack():
@@ -12,16 +14,17 @@ def do_pack():
     Fabric script that generates a .tgz archive from the
     contents of the web_static
     '''
-    try:
-        filepath = 'versions/web_static_' + datetime.now().\
-                   strftime('%Y%m%d%H%M%S') + '.tgz'
-        local('mkdir -p versions')
-        local('tar -zcvf versions/web_static_$(date +%Y%m%d%H%M%S).tgz\
-        web_static')
-        print('web_static packed: {} -> {}'.
-              format(filepath, os.path.getsize(filepath)))
-    except:
-        return None
+
+    time_stamp = datetime.now().strftime("%Y%m%d%H%M%S") + ".tgz"
+    archive_path = 'versions/web_static_' + time_stamp
+
+    local('mkdir -p versions/')
+
+    full_filename = local('tar -cvzf {} web_static/'.format(archive_path))
+
+    if full_filename.succeeded:
+        return archive_path
+    return None
 
 
 def do_deploy(archive_path):
