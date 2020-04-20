@@ -3,10 +3,18 @@ from flask import Flask
 app = Flask(__name__)
 
 
-@app.route('/hbnb')
+@app.route('/')
 def hello():
     '''
     Hello Flask
+    '''
+    return 'Hello HBNB!'
+
+
+@app.route('/hbnb')
+def hbnb():
+    '''
+    HBNB
     '''
     return 'HBNB:'
 
