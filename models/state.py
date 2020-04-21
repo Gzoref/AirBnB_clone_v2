@@ -2,7 +2,7 @@
 """This is the state class"""
 from os import getenv
 from models.base_model import BaseModel, Base
-from models.city import City
+#from models.city import City
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
@@ -16,9 +16,9 @@ class State(BaseModel, Base):
         cities: relation with city
     """
     __tablename__ = 'states'
+    name = Column(String(128), nullable=False)
 
     if getenv('HBNB_TYPE_STORAGE') == 'db':
-        name = Column(String(128), nullable=False)
         cities = relationship('City', cascade='all, delete',
                               backref='state')
     else:
@@ -29,10 +29,13 @@ class State(BaseModel, Base):
             city_list: list of cities from a state
             """
             from models import storage
+            from models.city import City
 
             city_list = []
+            city_dict = storage.all(City)
 
-            for key, value in storage.all(State):
-                    if value.state_id == self.id:
-                        city_list[key] = value
+            #for key, value in storage.all(State):
+            for city in city_dict.values():
+                if city.state_id == self.id:
+                    city_list.append(city)
             return city_list
