@@ -36,7 +36,7 @@ def python_text(text='is cool'):
     return 'Python {}'.format(text.replace('_', ' '))
 
 
-@app.route('/number/<n>')
+@app.route('/number/<int:n>')
 def number_route(n):
     '''
     /number/<n> route
@@ -44,7 +44,7 @@ def number_route(n):
     return '{} is a number'.format(int(n))
 
 
-@app.route('/number_template/<n>')
+@app.route('/number_template/<int:n>')
 def number_template(n):
     '''
     /number_template/<n> route
