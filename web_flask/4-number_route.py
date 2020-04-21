@@ -37,11 +37,11 @@ def python_text(text='is cool'):
 
 
 @app.route('/number/<n>')
-def number_route(number):
+def number_route(n):
     '''
     /number/<n> route
     '''
-    return '{} is a number'.format(int(number))
+    return '{} is a number'.format(int(n))
 
 
 if __name__ == '__main__':
