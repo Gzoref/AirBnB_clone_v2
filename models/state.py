@@ -2,7 +2,6 @@
 """This is the state class"""
 from os import getenv
 from models.base_model import BaseModel, Base
-#from models.city import City
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
@@ -34,7 +33,6 @@ class State(BaseModel, Base):
             city_list = []
             city_dict = storage.all(City)
 
-            #for key, value in storage.all(State):
             for city in city_dict.values():
                 if city.state_id == self.id:
                     city_list.append(city)
