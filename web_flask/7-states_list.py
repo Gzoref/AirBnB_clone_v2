@@ -19,7 +19,6 @@ def list_states():
     '''
     Lists states from db
     '''
-    storage.reload()
     state_dict = storage.all('State')
     state_list = []
 
