@@ -28,9 +28,11 @@ class State(BaseModel, Base):
             state_id equals to the current State.id
             city_list: list of cities from a state
             """
+            from models import storage
+
             city_list = []
 
-            for key, value in models.storage.all(State):
+            for key, value in storage.all(State):
                     if value.state_id == self.id:
                         city_list[key] = value
             return city_list
