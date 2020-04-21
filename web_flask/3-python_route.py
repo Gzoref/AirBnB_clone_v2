@@ -24,7 +24,7 @@ def c_text(text):
     '''
     /c/<text> route
     '''
-    return 'C {}'.format(escape(text.replace('_', ' ')))
+    return 'C {}'.format(text.replace('_', ' '))
 
 
 @app.route('/python', defaults={'text': 'is cool'})
@@ -33,7 +33,7 @@ def python_text(text):
     '''
     /python/<text> route
     '''
-    return 'Python {}'.format(escape(text.replace('_', ' ')))
+    return 'Python {}'.format(text.replace('_', ' '))
 
 
 if __name__ == '__main__':

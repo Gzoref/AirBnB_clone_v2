@@ -24,7 +24,7 @@ def c_text(text):
     '''
     /c/<text> route
     '''
-    return 'C {}'.format(escape(text.replace('_', ' ')))
+    return 'C {}'.format(text.replace('_', ' '))
 
 
 if __name__ == '__main__':
