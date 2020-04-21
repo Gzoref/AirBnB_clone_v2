@@ -24,16 +24,16 @@ def c_text(text):
     '''
     /c/<text> route
     '''
-    return 'C {}'.format(escape(text.replace('_', ' ')))
+    return 'C {}'.format(text.replace('_', ' '))
 
 
-@app.route('/python', defaults={'text': 'is cool'})
 @app.route('/python/<text>')
-def python_text(text):
+@app.route('/python/')
+def python_text(text='is cool'):
     '''
     /python/<text> route
     '''
-    return 'Python {}'.format(escape(text.replace('_', ' ')))
+    return 'Python {}'.format(text.replace('_', ' '))
 
 
 @app.route('/number/<n>')
