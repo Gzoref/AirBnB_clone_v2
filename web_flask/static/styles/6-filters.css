@@ -50,15 +50,14 @@ button:hover {
     height: 100%;
     width: 25%;
 }
-.popover {
-    visibility: hidden;
+section.filters div ul.popover {
     width: 100%;
-    overflow:hidden;
+    overflow-y: scroll;
     border: 1px solid #DDDDDD;
     border-radius: 4px;
     background: #FAFAFA;
     padding-bottom: 25px;
-    
+
 }
 .amenities .popover {
     padding: 20px 0;
