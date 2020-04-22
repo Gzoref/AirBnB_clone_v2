@@ -100,15 +100,6 @@ ul.popover li{
   margin-top: 0;
 }
 
-.popover .li_item {
-  margin-left: -20px;
-}
-
-.popover .li_pad {
-  line-height: 25px;
-  margin-left: -25px;
-}
-
 .amenities:hover .popover,
 .locations:hover .popover {
   visibility: visible;
