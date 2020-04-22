@@ -1,10 +1,10 @@
-section.filters {
+.container .filters {
   background-color: white;
+  position: relative;
   height: 70px;
   width: 100%;
-  border: 1px #DDDDDD solid;
+  border: 1px solid #DDDDDD;
   border-radius: 4px;
-  display: flex;
 }
 
 button {
@@ -13,96 +13,99 @@ button {
   color: #FFFFFF;
   height: 48px;
   width: 20%;
+  border-style: none;
   border-radius: 4px;
-  position: relative;
+  position: absolute;
+  top: 50%;
+  margin-top: -24px;
   right: 30px;
-  float: right;
-  margin-left: auto;
-  align-self: center;
 }
 
- .locations,
- .amenities {
-  width: 25%;
+button:hover {
+  opacity: 0.9;
+}
+
+.filters div {
+  display: inline-grid;
+}
+
+.filters .locations {
   height: 100%;
-  display: flex;  
-  flex-direction: column;
-  justify-content: center;  
-  flex-wrap: wrap;
-  position: relative;
-  box-sizing: border-box;
+  width: 25%;
+}
+
+
+.filters>.amenities {
+  height: 100%;
+  width: 25%;
+  margin-left: -4px;
+}
+
+.filters h4 {
+  margin-left: 15%;
+  margin-bottom: 3%;
+}
+
+.popover h2 {
+  margin-bottom: 2px;
+  margin-top: 0;
 }
 
 .locations {
-  height: 100%;
-  width: 25%;
   border-right: 1px solid #DDDDDD;
 }
 
 .filters h3 {
-  padding-bottom: 5px;
-  padding-left: 50px;
   font-weight: 600;
+  margin-bottom: -30px;
+  margin-left: 15%;
+  margin-top: 10%;
 }
 
-section.filters h4 {
-  padding-left: 50px;
-  font-weight: 400;
-  font-size: 14px;
-}
-
- ul.popover {
-  margin-top: 70px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  box-sizing: border-box;
-  width: calc(100%);
+.popover {
+  visibility: hidden;
+  width: auto;
   background-color: #FAFAFA;
-  border: 1px #DDDDDD solid;
+  border: 1px solid #DDDDDD;
   border-radius: 4px;
-  position: absolute;
-  top: 0;
-  left: -1px;
-  z-index: 1;
-  max-height: 300px;
-  overflow-y: scroll;
-  display: none;
-}
-
-section.filters div:hover ul.popover {
-  display: block;
-}
-
-
-section.filters ul.popover > li {
-  padding-bottom: 5px;
-}
-
-section.filters .amenities ul.popover > li {
-  font-weight: 600;
-}
-
- ul.popover ul {
-  padding-bottom: 5px;
-  list-style: none;
-  padding-left: 50px;
-}
-
-ul.popover{
+  padding: 20px;
+  height: 300px;
+  overflow: scroll;
   list-style: none;
 }
 
-ul.popover .amenities li{
-  text-align: left;
+.amenities .popover ul {
+  list-style-type: none;
+  margin-left: -20px;
 }
 
-ul.popover h2 {
-  padding-left: 25px;
-  padding-bottom: 5px;
-  font-size: 16px;
+.locations .popover ul {
+  list-style: none;
+  margin-left: -20px;
+  margin-bottom: 20px;
+  line-height: 20px;
 }
 
+.popover ul {
+  list-style-type: none;
+}
 
-button:hover {
-  opacity: 0.9;
+ul.popover li{
+  font-weight: bold;
+  line-height: 1.7em;
+  margin-top: 0;
+}
+
+.popover .li_item {
+  margin-left: -20px;
+}
+
+.popover .li_pad {
+  line-height: 25px;
+  margin-left: -25px;
+}
+
+.amenities:hover .popover,
+.locations:hover .popover {
+  visibility: visible;
 }
