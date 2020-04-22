@@ -62,7 +62,7 @@ button:hover {
   margin-top: 10%;
 }
 
-.popover {
+.popover{
   visibility: hidden;
   width: auto;
   background-color: #FAFAFA;
@@ -72,6 +72,10 @@ button:hover {
   height: 300px;
   overflow: scroll;
   list-style: none;
+}
+
+.popover::-webkit-scrollbar{
+  display: none;
 }
 
 .amenities .popover ul {
